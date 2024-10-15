@@ -83,22 +83,43 @@ End Navigation Bar
 <section>
   <div class="lightBg">
     <div class="container">
-        <form id="contactForm" method="POST" action="contact.html">
-        <input type="hidden" name="csrfmiddlewaretoken" value="7Uel3oXZsQlBqLDCAfCjFxUCFSHj5LkexgUXwOnhRtKAA1rfqvRkCY9KObbotz6F">
+        <form id="contactForm">
             <label for="name">Name</label>
-            <input type="text" name="name" placeholder="*Full name.." class="form-control" maxlength="100" required="" id="id_name">
+            <input type="text" name="name" placeholder="*Full name.." class="form-control" maxlength="100" required id="id_name">
 
             <label for="email">Email</label>
-            <input type="text" name="email" placeholder="*Email.." class="form-control" maxlength="254" required="" id="id_email">
+            <input type="email" name="email" placeholder="*Email.." class="form-control" maxlength="254" required id="id_email">
 
-            <label for="subject">Message</label>
-            <textarea name="message" cols="40" rows="6" placeholder="*Message.." class="form-control" maxlength="1000" required="" id="id_message"></textarea>
+            <label for="message">Message</label>
+            <textarea name="message" cols="40" rows="6" placeholder="*Message.." class="form-control" maxlength="1000" required id="id_message"></textarea>
 
             <input class="btn btnPrimary" type="submit" value="Submit">
         </form>
     </div>
   </div>
 </section>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function() {
+        emailjs.init('9acRfCwMXsKmEa9qB'); // Replace with your EmailJS user ID
+    })();
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        emailjs.sendForm('service_gwyfaew', 'template_5shimln', this)
+            .then(function() {
+                alert('Email sent successfully!');
+                document.getElementById('contactForm').reset(); // Reset the form
+            }, function(error) {
+                console.log('Failed to send email:', error);
+                alert('Email failed to send.');
+            });
+    });
+</script>
+
+
 <!-- ================================
 End Content
 ================================= -->
