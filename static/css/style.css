@@ -776,3 +776,40 @@ input[type=text], input[type=email], select, textarea {
   margin-bottom: 16px;
   resize: vertical
 }
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f5f5f5; /* Change as needed */
+  text-align: center;
+  padding: 0rem;
+}
+
+.typed {
+  font-size: 2rem; 
+  font-weight: bold;
+}
+
+#hero p{
+  font-size: 2rem; 
+  font-weight: bold;
+}
+
+#hero .social-links {
+  margin-bottom: 15px;
+}
+
+#hero .social-links ul{
+  font-size: 24px;
+  display: inline-block;
+  color: #45505b;
+  /* line-height: 1; */
+  /* margin-right: 20px; */
+  transition: 0.3s;
+}
+
+.social-links img:hover {
+  color: #0563bb;
+}
